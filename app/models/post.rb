@@ -3,5 +3,7 @@ class Post < ActiveRecord::Base
   validates :content, length: {minimum: 250}
   validates :summary, length: {maximum: 250}
   validates :category, inclusion: {in: %w(Fiction Non-Fiction)}
-  #validates :title, inclusion: {in: %w(won't believe secret top guess)}
+  validates :clickbait?
+
+  @@clickbait_titles = [/Won't Believe/i,/Secret/i,/Top [0-9]*/i,/Guess/i]
 end
